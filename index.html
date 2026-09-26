@@ -5,265 +5,1285 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Frituur Den Heikant | Zele</title>
-    <meta name="description" content="Frituur Den Heikant in Zele. Ontdek ons menu en plaats eenvoudig je bestelling.">
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+          content="Frituur Den Heikant in Zele. Verse frieten, snacks en burgers. Afhalen en betalen met cash of kaart.">
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+
+        :root {
+            --red: #b52c20;
+            --dark-red: #8f2118;
+            --cream: #f3eee4;
+            --white: #fffdf9;
+            --black: #171512;
+            --grey: #6d685f;
+            --light-grey: #ded8ce;
+            --yellow: #e1ad3d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", Arial, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.55;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 253, 249, 0.96);
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            min-height: 78px;
+            margin: auto;
+            padding: 0 24px;
+
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .logo {
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-main {
+            font-family: Oswald, sans-serif;
+            font-size: 25px;
+            letter-spacing: 1.5px;
+        }
+
+        .logo-sub {
+            margin-top: 5px;
+            color: var(--red);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 27px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--red);
+        }
+
+        .route-button {
+            padding: 10px 17px;
+            background: var(--red);
+            color: white;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: var(--cream);
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        .hero-inner {
+            max-width: 1180px;
+            min-height: 550px;
+            margin: auto;
+            padding: 80px 24px;
+
+            display: grid;
+            grid-template-columns: 1fr 330px;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .small-title {
+            margin-bottom: 14px;
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+        }
+
+        h1 {
+            font-family: Oswald, sans-serif;
+            font-size: clamp(54px, 7vw, 88px);
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            color: var(--red);
+        }
+
+        .hero-text {
+            max-width: 600px;
+            margin-top: 25px;
+            color: var(--grey);
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            margin-top: 32px;
+
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 20px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .button-dark {
+            background: var(--black);
+            color: white;
+        }
+
+        .button-dark:hover {
+            background: var(--red);
+        }
+
+        .simple-link {
+            font-weight: 700;
+            border-bottom: 2px solid var(--red);
+        }
+
+        .hero-card {
+            background: var(--red);
+            color: white;
+            padding: 34px 30px;
+            min-height: 320px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            box-shadow: 12px 12px 0 var(--yellow);
+        }
+
+        .hero-card-small {
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .hero-card-big {
+            font-family: Oswald, sans-serif;
+            font-size: 55px;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .hero-card-bottom {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            opacity: 0.9;
+        }
+
+        /* =========================
+           INFO BAR
+        ========================= */
+
+        .info-bar {
+            background: var(--black);
+            color: white;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .info-item {
+            padding: 23px 30px;
+            border-right: 1px solid #37342f;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-item strong {
+            font-family: Oswald, sans-serif;
+            font-size: 19px;
+            text-transform: uppercase;
+        }
+
+        .info-item span {
+            color: #aaa59c;
+            font-size: 12px;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        .section {
+            max-width: 1180px;
+            margin: auto;
+            padding: 100px 24px;
+        }
+
+        .section-title {
+            max-width: 700px;
+            margin-bottom: 45px;
+        }
+
+        .section-title .small-title {
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: Oswald, sans-serif;
+            font-size: clamp(40px, 5vw, 62px);
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .section-description {
+            margin-top: 17px;
+            color: var(--grey);
+        }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .menu-card {
+            background: white;
+            border: 1px solid var(--light-grey);
+            padding: 25px 27px;
+        }
+
+        .menu-card h3 {
+            padding-bottom: 13px;
+            margin-bottom: 4px;
+
+            border-bottom: 2px solid var(--black);
+
+            font-family: Oswald, sans-serif;
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+
+        .menu-row {
+            min-height: 40px;
+            padding: 8px 0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+
+            border-bottom: 1px dotted #c8c1b5;
+
+            font-size: 14px;
+        }
+
+        .menu-row:last-child {
+            border-bottom: none;
+        }
+
+        .menu-price {
+            color: var(--red);
+            white-space: nowrap;
+            font-weight: 700;
+        }
+
+        .menu-note {
+            color: #9a9489;
+            font-size: 12px;
+        }
+
+        .full-width-menu {
+            margin-top: 24px;
+        }
+
+        /* =========================
+           OPENINGSUREN
+        ========================= */
+
+        .hours-section {
+            background: var(--cream);
+        }
+
+        .hours-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 100px 24px;
+        }
+
+        .hours-list {
+            border-top: 3px solid var(--black);
+            max-width: 850px;
+        }
+
+        .hours-row {
+            padding: 16px 10px;
+            border-bottom: 1px solid var(--light-grey);
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            font-size: 15px;
+        }
+
+        .hours-row strong {
+            text-align: right;
+        }
+
+        .closed {
+            color: #999;
+        }
+
+        .closed strong {
+            color: var(--red);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            background: var(--white);
+        }
+
+        .contact-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 100px 24px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-text {
+            max-width: 550px;
+        }
+
+        .contact-text p {
+            margin: 20px 0 28px;
+            color: var(--grey);
+        }
+
+        .contact-card {
+            background: var(--cream);
+            border: 1px solid var(--light-grey);
+            padding: 35px;
+
+            display: grid;
+            gap: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            margin-bottom: 4px;
+            color: var(--red);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .contact-detail strong {
+            font-family: Oswald, sans-serif;
+            font-size: 23px;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           REVIEWS
+        ========================= */
+
+        .reviews {
+            background: var(--black);
+            color: white;
+        }
+
+        .reviews-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 90px 24px;
+        }
+
+        .reviews .small-title {
+            color: var(--yellow);
+        }
+
+        .reviews h2 {
+            margin-bottom: 35px;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .review {
+            padding: 25px;
+            background: #24221f;
+            border: 1px solid #393632;
+        }
+
+        .stars {
+            color: var(--yellow);
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .review p {
+            color: #ddd8cf;
+            font-size: 14px;
+        }
+
+        .review strong {
+            display: block;
+            margin-top: 17px;
+            color: white;
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 24px;
+            background: #0f0e0c;
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #88847d;
+        }
+
+        footer a {
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .header-inner {
+                min-height: 68px;
+                padding: 0 17px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+
+            .hero-card {
+                max-width: 360px;
+            }
+
+            .info-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item {
+                border-right: none;
+                border-bottom: 1px solid #37342f;
+            }
+
+            .menu-grid,
+            .contact-inner,
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section,
+            .hours-inner,
+            .contact-inner,
+            .reviews-inner {
+                padding-top: 75px;
+                padding-bottom: 75px;
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            .route-button {
+                padding: 9px 12px;
+            }
+
+            h1 {
+                font-size: 53px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 17px;
+            }
+
+            .menu-card {
+                padding: 20px 18px;
+            }
+
+            .menu-row {
+                font-size: 13px;
+            }
+
+            .hours-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .hours-row strong {
+                text-align: left;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-<header class="navbar">
-    <a href="#home" class="logo">
-        DEN <span>HEIKANT</span>
-    </a>
+<header>
 
-    <nav>
-        <a href="#menu">Menu</a>
-        <a href="#info">Info</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-inner">
 
-    <a href="#bestellen" class="nav-button">Bestellen</a>
-</header>
+        <a href="#top" class="logo">
+            <span class="logo-main">DEN HEIKANT</span>
+            <span class="logo-sub">FRITUUR · ZELE</span>
+        </a>
 
-
-<main>
-
-<section id="home" class="hero">
-    <div class="hero-content">
-
-        <p class="eyebrow">FRITUUR • ZELE</p>
-
-        <h1>
-            Frieten zoals<br>
-            <span>het hoort.</span>
-        </h1>
-
-        <p class="hero-text">
-            Zin in goeie frieten, snacks en een stevige frituursnack?
-            Ontdek het aanbod van Frituur Den Heikant.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#menu" class="button primary">Bekijk menu</a>
-            <a href="#bestellen" class="button secondary">Bestellen</a>
-        </div>
-
-    </div>
-
-    <div class="hero-card">
-        <div class="hero-card-inner">
-            <span>🍟</span>
-            <p>DEN HEIKANT</p>
-            <strong>ZELE</strong>
-        </div>
-    </div>
-</section>
-
-
-<section class="features">
-
-    <div class="feature">
-        <span>🍟</span>
-        <div>
-            <h3>Verse frieten</h3>
-            <p>Krokant van buiten, zacht van binnen.</p>
-        </div>
-    </div>
-
-    <div class="feature">
-        <span>🔥</span>
-        <div>
-            <h3>Heerlijke snacks</h3>
-            <p>Voor een snelle hap of stevige maaltijd.</p>
-        </div>
-    </div>
-
-    <div class="feature">
-        <span>📱</span>
-        <div>
-            <h3>Makkelijk bestellen</h3>
-            <p>Bestel eenvoudig via WhatsApp.</p>
-        </div>
-    </div>
-
-</section>
-
-
-<section id="menu" class="section">
-
-    <div class="section-heading">
-        <p class="eyebrow">ONS AANBOD</p>
-        <h2>Het menu</h2>
-        <p>
-            Een selectie van onze populaire snacks.
-            Prijzen en assortiment kunnen hier later eenvoudig worden aangepast.
-        </p>
-    </div>
-
-    <div class="menu-grid">
-
-        <article class="menu-card">
-            <div class="menu-icon">🍟</div>
-            <div>
-                <h3>Frieten</h3>
-                <p>Kleine, medium of grote portie</p>
-            </div>
-            <span class="price">€ —</span>
-        </article>
-
-        <article class="menu-card">
-            <div class="menu-icon">🌭</div>
-            <div>
-                <h3>Frikandel</h3>
-                <p>Een echte frituurklassieker</p>
-            </div>
-            <span class="price">€ —</span>
-        </article>
-
-        <article class="menu-card">
-            <div class="menu-icon">🧀</div>
-            <div>
-                <h3>Kaaskroket</h3>
-                <p>Krokant met een romige vulling</p>
-            </div>
-            <span class="price">€ —</span>
-        </article>
-
-        <article class="menu-card">
-            <div class="menu-icon">🍗</div>
-            <div>
-                <h3>Kip</h3>
-                <p>Heerlijke kip-snacks</p>
-            </div>
-            <span class="price">€ —</span>
-        </article>
-
-        <article class="menu-card">
-            <div class="menu-icon">🥩</div>
-            <div>
-                <h3>Vleessnacks</h3>
-                <p>Verschillende snacks uit de frituur</p>
-            </div>
-            <span class="price">€ —</span>
-        </article>
-
-        <article class="menu-card">
-            <div class="menu-icon">🥤</div>
-            <div>
-                <h3>Dranken</h3>
-                <p>Frisdranken en andere opties</p>
-            </div>
-            <span class="price">€ —</span>
-        </article>
-
-    </div>
-
-</section>
-
-
-<section id="bestellen" class="order-section">
-
-    <div class="order-content">
-
-        <p class="eyebrow">SNEL BESTELLEN</p>
-
-        <h2>Klaar om te bestellen?</h2>
-
-        <p>
-            Stuur je bestelling eenvoudig via WhatsApp.
-            We kunnen hier later een automatisch ingevuld bestelbericht aan koppelen.
-        </p>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#uren">Openingsuren</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
         <a
-            href="https://wa.me/"
-            class="button whatsapp"
+            class="route-button"
+            href="https://www.google.com/maps/dir/?api=1&destination=Heikant+265%2C+9240+Zele%2C+Belgium"
             target="_blank"
-            rel="noopener"
         >
-            Bestellen via WhatsApp →
+            Route
         </a>
 
     </div>
 
-</section>
+</header>
 
 
-<section id="info" class="section info-section">
+<main id="top">
 
-    <div class="section-heading">
-        <p class="eyebrow">PRAKTISCHE INFO</p>
-        <h2>Wanneer zijn we open?</h2>
-    </div>
+    <!-- HERO -->
 
-    <div class="info-grid">
+    <section class="hero">
 
-        <div class="info-card">
-            <span>🕐</span>
-            <h3>Openingsuren</h3>
+        <div class="hero-inner">
 
-            <div class="hours">
-                <p><span>Maandag</span><strong>—</strong></p>
-                <p><span>Dinsdag</span><strong>—</strong></p>
-                <p><span>Woensdag</span><strong>—</strong></p>
-                <p><span>Donderdag</span><strong>—</strong></p>
-                <p><span>Vrijdag</span><strong>—</strong></p>
-                <p><span>Zaterdag</span><strong>—</strong></p>
-                <p><span>Zondag</span><strong>—</strong></p>
+            <div>
+
+                <p class="small-title">
+                    FRITUUR DEN HEIKANT · ZELE
+                </p>
+
+                <h1>
+                    Goede frieten.<br>
+                    <span>Gewoon goed.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Verse frieten, snacks en burgers.
+                    Kom langs in Den Heikant en neem je bestelling mee naar huis.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#menu" class="button button-dark">
+                        Bekijk het menu
+                    </a>
+
+                    <a href="#uren" class="simple-link">
+                        Bekijk openingsuren →
+                    </a>
+
+                </div>
+
             </div>
+
+
+            <div class="hero-card">
+
+                <span class="hero-card-small">
+                    AFHALEN
+                </span>
+
+                <div class="hero-card-big">
+                    CASH<br>
+                    &<br>
+                    KAART
+                </div>
+
+                <span class="hero-card-bottom">
+                    HEIKANT 265 · 9240 ZELE
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="info-card">
-            <span>📍</span>
-            <h3>Locatie</h3>
-            <p>
-                Frituur Den Heikant<br>
-                Zele, België
+    </section>
+
+
+    <!-- KORTE INFO -->
+
+    <section class="info-bar">
+
+        <div class="info-item">
+            <strong>Verse frieten</strong>
+            <span>Verse bereidingen en snacks</span>
+        </div>
+
+        <div class="info-item">
+            <strong>Afhalen</strong>
+            <span>Bestelling meenemen naar huis</span>
+        </div>
+
+        <div class="info-item">
+            <strong>Cash & kaart</strong>
+            <span>Beide betaalmogelijkheden</span>
+        </div>
+
+    </section>
+
+
+    <!-- MENU -->
+
+    <section class="section" id="menu">
+
+        <div class="section-title">
+
+            <p class="small-title">MENU</p>
+
+            <h2>Frieten & snacks</h2>
+
+            <p class="section-description">
+                Een overzicht van het aanbod van Frituur Den Heikant.
             </p>
 
-            <a href="#contact" class="text-link">
-                Contactgegevens bekijken →
-            </a>
         </div>
 
-    </div>
 
-</section>
+        <div class="menu-grid">
 
 
-<section id="contact" class="contact-section">
+            <!-- FRIETEN -->
 
-    <div>
-        <p class="eyebrow">CONTACT</p>
-        <h2>Den Heikant</h2>
-        <p>
-            Heb je een vraag of wil je bestellen?
-            Neem contact met ons op.
-        </p>
-    </div>
+            <div class="menu-card">
 
-    <div class="contact-details">
-        <p><strong>📍 Adres</strong><br>Zele, België</p>
-        <p><strong>📞 Telefoon</strong><br>—</p>
-        <p><strong>📱 WhatsApp</strong><br>—</p>
-    </div>
+                <h3>Frieten</h3>
 
-</section>
+                <div class="menu-row">
+                    <span>Klein</span>
+                    <span class="menu-price">€ 2,70</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Middel</span>
+                    <span class="menu-price">€ 3,00</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Groot</span>
+                    <span class="menu-price">€ 3,40</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Extra groot</span>
+                    <span class="menu-price">€ 3,70</span>
+                </div>
+
+            </div>
+
+
+            <!-- VERSE BEREIDINGEN -->
+
+            <div class="menu-card">
+
+                <h3>Verse bereidingen</h3>
+
+                <div class="menu-row">
+                    <span>Stoofvlees</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Balletjes in tomatensaus</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Vol-au-vent</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Paardeworsten (2 st.)</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+            </div>
+
+
+            <!-- SAUZEN -->
+
+            <div class="menu-card">
+
+                <h3>Sauzen</h3>
+
+                <div class="menu-row">
+                    <span>Op de frietjes</span>
+                    <span class="menu-price">€ 1,10</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>In een potje</span>
+                    <span class="menu-price">€ 2,20</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Special saus in potje</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Special saus op snack</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Verse tartaar</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Warme curry</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Stoofvleessaus</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+            </div>
+
+
+            <!-- SNACKS -->
+
+            <div class="menu-card">
+
+                <h3>Snacks</h3>
+
+                <div class="menu-row">
+                    <span>Curryworst / special</span>
+                    <span class="menu-price">€ 2,20 / 3,00</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Boulet</span>
+                    <span class="menu-price">€ 2,60 / 3,40</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Verse boulet</span>
+                    <span class="menu-price">€ 3,20</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Boulet Heikant</span>
+                    <span class="menu-price">€ 3,90</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Cervela / special</span>
+                    <span class="menu-price">€ 3,50 / 4,40</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Berepoot</span>
+                    <span class="menu-price">€ 2,80</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Viandel / spicy</span>
+                    <span class="menu-price">€ 2,80</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Mammoet / + saus</span>
+                    <span class="menu-price">€ 2,90 / 3,30</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Mexicano / special</span>
+                    <span class="menu-price">€ 3,70 / 4,50</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Pikanto</span>
+                    <span class="menu-price">€ 2,80</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Curryworst XXL / special</span>
+                    <span class="menu-price">€ 4,70 / 6,30</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Kipkorn</span>
+                    <span class="menu-price">€ 2,80</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Kipkaaspunt</span>
+                    <span class="menu-price">€ 3,00</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Chix / kippets</span>
+                    <span class="menu-price">€ 4,20</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Loempia</span>
+                    <span class="menu-price">€ 3,90</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bitterballen (5 st.)</span>
+                    <span class="menu-price">€ 4,00</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Kabeljauwstick</span>
+                    <span class="menu-price">€ 3,40</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Calamares</span>
+                    <span class="menu-price">€ 3,40</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Garnaalkroket</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+            </div>
+
+
+            <!-- EXTRA SNACKS -->
+
+            <div class="menu-card">
+
+                <h3>Kroketten & meer</h3>
+
+                <div class="menu-row">
+                    <span>Kaaskroket klein</span>
+                    <span class="menu-price">€ 2,70</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Kaaskroket artisanaal</span>
+                    <span class="menu-price">€ 3,70</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bitterballen kaas (4 st.)</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bitterballen veggie</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Mozzarella fingers</span>
+                    <span class="menu-price">€ 2,70</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Kaassoufflé</span>
+                    <span class="menu-price">€ 2,80</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Vleeskroket</span>
+                    <span class="menu-price">€ 4,20</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Goulashkroket</span>
+                    <span class="menu-price">€ 4,20</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Vuurvreter</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Sweet Chick 'n Chili</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Ardeense saté</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+            </div>
+
+
+            <!-- BURGERS -->
+
+            <div class="menu-card">
+
+                <h3>Burgers</h3>
+
+                <div class="menu-row">
+                    <span>Bicky Original</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bicky Cheese</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bicky Crunchy Chicken</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bicky Chickless (veggie)</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bicky Fish</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bicky Royal</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bicky Mexicano</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Romboutje</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Julientje</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Bicky Frietje</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+            </div>
+
+
+            <!-- DRANKEN -->
+
+            <div class="menu-card">
+
+                <h3>Dranken</h3>
+
+                <div class="menu-row">
+                    <span>Cola / Zero / Fanta</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Ice Tea</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Water plat / bruis</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Jupiler</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Capri-Sun</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+                <div class="menu-row">
+                    <span>Melk wit / rood / rosé</span>
+                    <span class="menu-price">—</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OPENINGSUREN -->
+
+    <section class="hours-section" id="uren">
+
+        <div class="hours-inner">
+
+            <div class="section-title">
+
+                <p class="small-title">OPENINGSUREN</p>
+
+                <h2>Wanneer zijn we open?</h2>
+
+            </div>
+
+            <div class="hours-list">
+
+                <div class="hours-row">
+                    <span>Maandag</span>
+                    <strong>17:00 – 21:00</strong>
+                </div>
+
+                <div class="hours-row closed">
+                    <span>Dinsdag</span>
+                    <strong>Gesloten</strong>
+                </div>
+
+                <div class="hours-row closed">
+                    <span>Woensdag</span>
+                    <strong>Gesloten</strong>
+                </div>
+
+                <div class="hours-row">
+                    <span>Donderdag</span>
+                    <strong>17:00 – 21:00</strong>
+                </div>
+
+                <div class="hours-row">
+                    <span>Vrijdag</span>
+                    <strong>17:00 – 22:00</strong>
+                </div>
+
+                <div class="hours-row">
+                    <span>Zaterdag</span>
+                    <strong>17:00 – 21:00</strong>
+                </div>
+
+                <div class="hours-row">
+                    <span>Zondag</span>
+                    <strong>11:30 – 13:30 · 17:00 – 21:00</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-inner">
+
+            <div class="contact-text">
+
+                <p class="small-title">DEN HEIKANT</p>
+
+                <h2>Kom langs in Zele.</h2>
+
+                <p>
+                    Frituur Den Heikant wordt uitgebaat door
+                    Jolien en Joeri. Je kan hier terecht voor
+                    frieten, snacks en burgers om af te halen.
+                </p>
+
+                <a
+                    class="button button-dark"
+                    href="https://www.google.com/maps/dir/?api=1&destination=Heikant+265%2C+9240+Zele%2C+Belgium"
+                    target="_blank"
+                >
+                    Plan je route
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-detail">
+                    <span class="contact-label">ADRES</span>
+                    <strong>Heikant 265</strong>
+                    <strong>9240 Zele</strong>
+                </div>
+
+                <div class="contact-detail">
+                    <span class="contact-label">AFHALEN</span>
+                    <strong>Cash & kaart</strong>
+                </div>
+
+                <div class="contact-detail">
+                    <span class="contact-label">EIGENAARS</span>
+                    <strong>Jolien & Joeri</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+
+    <section class="reviews">
+
+        <div class="reviews-inner">
+
+            <p class="small-title">WAT KLANTEN ZEGGEN</p>
+
+            <h2>Vriendelijk.<br>Lekker. Verzorgd.</h2>
+
+            <div class="review-grid">
+
+                <div class="review">
+                    <div class="stars">★★★★★</div>
+                    <p>
+                        Klanten spreken over lekkere frieten,
+                        vriendelijke bediening en een verzorgde zaak.
+                    </p>
+                    <strong>— Google review</strong>
+                </div>
+
+                <div class="review">
+                    <div class="stars">★★★★★</div>
+                    <p>
+                        Meerdere bezoekers vermelden de vriendelijke
+                        ontvangst en de kwaliteit van de frieten.
+                    </p>
+                    <strong>— Google review</strong>
+                </div>
+
+                <div class="review">
+                    <div class="stars">★★★★★</div>
+                    <p>
+                        Ook het stoofvlees en de ruime porties
+                        worden door klanten positief vermeld.
+                    </p>
+                    <strong>— Google review</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </main>
 
 
 <footer>
+
     <div>
-        <strong>FRITUUR DEN HEIKANT</strong>
-        <p>© <span id="year"></span> Frituur Den Heikant</p>
+        <strong>FRITUUR DEN HEIKANT</strong><br>
+        <span>Heikant 265 · 9240 Zele</span>
     </div>
 
-    <a href="#home">Terug naar boven ↑</a>
+    <a href="#top">↑ Naar boven</a>
+
 </footer>
-
-
-<script src="script.js"></script>
 
 </body>
 </html>
